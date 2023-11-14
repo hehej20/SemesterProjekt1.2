@@ -9,16 +9,18 @@ class Space extends Node {
   }
   
   public void welcome () {
-    System.out.println("You are now at "+name);
+    System.out.println("Du er nu ved "+name);
     Set<String> exits = edges.keySet();
-    System.out.println("Current exits are:");
+    System.out.println("Mulige veje at gå er:");
     for (String exit: exits) {
       System.out.println(" - "+exit);
     }
   }
-  
   public void goodbye () {
   }
+  public void addExit(String direction, Space destination) {
+    addEdge(direction, destination);
+    }
   
   @Override
   public Space followEdge (String direction) {

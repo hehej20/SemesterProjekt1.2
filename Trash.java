@@ -9,6 +9,7 @@ public class Trash {
     //private final String sortCat;
     static InventoryManager inventory = new InventoryManager();
 
+
     public Trash(/*String type, String sortCat*/) {
         //this.trashType = type;
         //this.sortCat = sortCat;

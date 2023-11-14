@@ -18,7 +18,8 @@ public class InventoryManager {
         this.item = item;
         this.quantity = quantity;
     }
-    public ArrayList<String> getInventory() {
+    public static ArrayList<String> getInventory() {
+
         return inventory;
     }
     public void addItem(String name, int quantity) {
