@@ -1,7 +1,7 @@
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class Tasks {
+public class Tasks extends Node{
     String description;
     String rewardMsg;
     boolean isComplete = false;
@@ -11,6 +11,7 @@ public class Tasks {
 
 
     public Tasks (String description, String rewardMsg) {
+        super(name);
         // initialize the taskCount, trashCount and timer as needed.
         this.description = description;
         this.rewardMsg = rewardMsg;
