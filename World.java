@@ -5,7 +5,7 @@ class World {
   Space entry;
   
   World () {
-    Space startRoom = new Space("Strand\n - Du høre en skildpadde råbe efter hjælp", 2, new Tasks("", ""));
+    Space startRoom = new Space("Strand\n - Du høre en skildpadde råbe efter hjælp", 2);
     Space beachTurtle = new Space("Strand\n - en skildpadde sidder fast i skrald", 4, new Tasks("Hjælp skildpadden ned til vandet ved at fjerne alt skraldet", "Tak for hjælpen! Vidste du:\n - For hvert minut der går bliver der smidt hvad der svarer til en fyldt skraldebil i havet\n - https://wwf.org.au/blogs/plastic-pollution-is-killing-sea-turtles-heres-how/"));
     Space trashSort = new Space("Sorteringsrum", 0, new Tasks("", "Sorter dit skrald i dette rum"));
     Space beachTrash = new Space("Strand fyldt med skrald", 6, new Tasks("Denne strand er fyldt med skrald! gør rent på den forurenede strand", "Lige præcis, godt arbejde!!! - Vidste du:\n - 52% af alle skildpadder har spist plastik\n - 92% af skildpadder som indvikles i kasseret fiskeudstyr dør\n - https://wwf.org.au/blogs/plastic-pollution-is-killing-sea-turtles-heres-how/"));
