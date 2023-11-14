@@ -26,8 +26,8 @@ class Game {
   public static void main (String args[]) {
     System.out.println("Velkommen til stranden! Hjælp skildpadden med opgaverne og sorter skrald for at få point :)");
     
-    //initRegistry();
-    //context.getCurrent().displayRoom();
+    initRegistry();
+    context.getCurrent().welcome();
 
             inventory.add("plastik");
             inventory.add("metal");
@@ -38,12 +38,12 @@ class Game {
 
     trash.sortTrash();
 
-   /* while (context.isDone()==false) {
+    while (context.isDone()==false) {
       System.out.print("> ");
       String line = scanner.nextLine();
       registry.dispatch(line);
     }
     System.out.println("Game Over 😥");
-    */
+
   }
 }
