@@ -13,18 +13,19 @@ Space entry = new Space("Start Room");
   private HashMap<String, Item> items;
 
   //Constructor som tager et string som argument. Laver Room objekt med en beskrivelse
-  //og et exit hashmap som indeholder en string som referer til room objekter som spilleren can gå ind i.
+  //og et exit hashmap som indeholder en string som referer til room objekter som spilleren kan gå ind i.
 
-  public Room() {
+  public Room(String description) {
+    super(description);
     this.description = description;
     exits = new HashMap<String, Room>();
     items = new HashMap<String, Item>();
   }
 
 
-  public String getRoomName(){
-    return name;
-  }
+  //public String getRoomName(){
+    //return name;
+  //}
 
 
   //metode som mapper exits med direction til næste room. Ved at kalde denne metode can det defineres hvilket exit

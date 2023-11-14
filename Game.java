@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 
 class Game {
-  static Room    room    = new Room();
+  static Room room    = new Room();
   static PointSystem pointSystem = new PointSystem();
   static ArrayList<String> inventory = new ArrayList<>();
   static Context  context  = new Context(room.getEntry());
