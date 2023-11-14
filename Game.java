@@ -24,7 +24,7 @@ class Game {
   }
   
   public static void main (String args[]) {
-    System.out.println("Velkommen til stranden! Hjælp skildpadden med opgaverne og sorter skrald for at få point :));
+    System.out.println("Velkommen til stranden! Hjælp skildpadden med opgaverne og sorter skrald for at få point :)");
     
     //initRegistry();
     //context.getCurrent().displayRoom();
