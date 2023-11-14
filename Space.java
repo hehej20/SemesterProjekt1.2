@@ -4,7 +4,7 @@
 import java.util.Set;
 
 class Space extends Node {
-  Space (String name) {
+  public Space (String name) {
     super(name);
   }
   
