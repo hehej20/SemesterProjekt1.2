@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 
 class Game {
-  static Room room    = new Room();
+  static Room room    = new Room("description");
   static PointSystem pointSystem = new PointSystem();
   static ArrayList<String> inventory = new ArrayList<>();
   static Context  context  = new Context(room.getEntry());
@@ -29,17 +29,17 @@ class Game {
   }
 
   public Room startRoom, beach, ocean, oil, plasticIsland;
-  private void createRooms(){
+  private void createRooms(String description){
 
-    startRoom = new Room();
+    startRoom = new Room("start rum");
 
-    beach = new Room();
+    beach = new Room("stranden");
 
-    ocean = new Room();
+    ocean = new Room("havet");
 
-    oil = new Room();
+    oil = new Room("olie og giftig affald flyder ud i havet");
 
-    plasticIsland = new Room();
+    plasticIsland = new Room("plastik 'øer' ude i havet");
 
     entry.addEdge("frem", startRoom);
 

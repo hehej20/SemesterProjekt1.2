@@ -1,7 +1,7 @@
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class Tasks extends Node{
+/*public class Tasks extends Node{
     String description;
     String rewardMsg;
     boolean isComplete = false;
@@ -70,3 +70,4 @@ public class Tasks extends Node{
     }
 
 }
+*/
