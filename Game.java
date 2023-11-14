@@ -15,6 +15,7 @@ class Game {
   static Scanner  scanner  = new Scanner(System.in);
   static Trash trash = new Trash();
   private Room entry;
+  private Room currentRoom;
 
 
 
@@ -41,9 +42,12 @@ class Game {
 
     plasticIsland = new Room("plastik 'øer' ude i havet");
 
+
     entry.addEdge("frem", startRoom);
+    entry.setExit("frem", startRoom);
 
     startRoom.setExit("frem", beach);
+
 
 
     beach.setExit("frem", ocean);
@@ -73,7 +77,7 @@ class Game {
     //add items to ocean
     ocean.addItem("plastik", plastik);
     ocean.addItem("metal", metal);
-
+currentRoom = entry;
   }
   public static void main (String args[]) {
     System.out.println("Velkommen til stranden! Hjælp skildpadden med opgaverne og sorter skrald for at få point :)\n Du kan skrive gå+lokation for at bevæge dig rundt!");
