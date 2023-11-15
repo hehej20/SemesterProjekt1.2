@@ -1,28 +1,27 @@
-import java.util.Timer;
-import java.util.TimerTask;
-
-/*public class Tasks extends Node{
-    String description;
+/* public class Tasks extends Room {
+    String taskDescription;
     String rewardMsg;
-    boolean isComplete = false;
     private int timers = 30;
     private int taskCount;
     static boolean timeUp = false;
 
+    Tasks (String taskDescription, String rewardMsg)
+    HashMap<String, Room> taskDescription = new HashMap()
 
-    public Tasks (String description, String rewardMsg) {
-        super(name);
-        // initialize the taskCount, trashCount and timer as needed.
-        this.description = description;
+    public Tasks (String taskDescription, String rewardMsg, String description) {
+        super(description);
+        // super(String description, String rewardMsg);
+        // initialize the timer as needed.
+        this.taskDescription = taskDescription;
         this.rewardMsg = rewardMsg;
-        if (getName().equals("oilRig")) {
+        if (getRoomName().equals("oil")) {
             startTimer();
         }
     }
 
 
-    public String getDescription() {
-        return description;
+    public String getTaskDescription() {
+        return taskDescription;
     }
 
 
