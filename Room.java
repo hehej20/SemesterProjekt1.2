@@ -23,9 +23,9 @@ Space entry = new Space("Start Room");
   }
 
 
-  //public String getRoomName(){
-    //return name;
-  //}
+  public String getRoomName(){
+    return name;
+  }
 
 
   //metode som mapper exits med direction til næste room. Ved at kalde denne metode can det defineres hvilket exit
