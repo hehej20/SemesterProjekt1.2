@@ -26,4 +26,7 @@ class Space extends Node {
   public Space followEdge (String direction) {
     return (Space) (super.followEdge(direction));
   }
+
+  public void Welcome() {
+  }
 }
