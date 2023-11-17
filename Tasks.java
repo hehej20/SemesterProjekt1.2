@@ -1,22 +1,25 @@
-/* public class Tasks extends Room {
-    String taskDescription;
-    String rewardMsg;
-    private int timers = 30;
-    private int taskCount;
-    static boolean timeUp = false;
+/* import java.util.HashMap;
 
-    Tasks (String taskDescription, String rewardMsg)
-    HashMap<String, Room> taskDescription = new HashMap()
+public class Tasks {
+    private String taskDescription;
+    private String rewardMessage;
 
-    public Tasks (String taskDescription, String rewardMsg, String description) {
-        super(description);
-        // super(String description, String rewardMsg);
-        // initialize the timer as needed.
+     private int timers = 30;
+     private int taskCount;
+    // static boolean timeUp = false;
+
+    // initialize the timer.
+
+
+    // constructor
+    public Tasks (String taskDescription, String rewardMessage) {
         this.taskDescription = taskDescription;
-        this.rewardMsg = rewardMsg;
-        if (getRoomName().equals("oil")) {
-            startTimer();
+        this.rewardMessage = rewardMessage;
         }
+
+    // metode til at tilføje navn på rummet + beskeder til HashMap
+    public void addTasksToMap(HashMap<String, Tasks> taskMessages) {
+        taskMessages.put("stranden", new Tasks("Åh nej! Alle skildpaddeungerne kan ikke komme ned til vandet for alt det skrald", "Tak for hjælpen!"));
     }
 
 
@@ -24,11 +27,11 @@
         return taskDescription;
     }
 
-
-    public void taskComplete () { // Kaldes når opgaven er udført
+    // Kaldes når opgaven er udført
+    public String taskComplete () {
             // taskCount stiger når en task er complete
             taskCount++;
-            System.out.println(rewardMsg);
+            return rewardMessage;
     }
 
 
@@ -46,7 +49,7 @@
                     System.out.println("Time is up! :)");
                     taskComplete();
                     timer.cancel();
-                    timeUp = true;
+                    // timeUp = true;
                 }
             }
         };
