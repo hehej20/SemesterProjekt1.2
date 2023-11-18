@@ -23,8 +23,18 @@ public class Tasks {
     }
 
 
-    public String getTaskDescription() {
+    public String getTaskDescription () {
         return taskDescription;
+    }
+
+
+    public static String getTaskDescriptionByKey(String key, HashMap<String, Tasks> taskMessages) {
+        Tasks task = taskMessages.get(key);
+        if (task != null) {
+            return task.getTaskDescription();
+        } else {
+            return "Der er ingen opgaveer her";
+        }
     }
 
     // Kaldes når opgaven er udført
