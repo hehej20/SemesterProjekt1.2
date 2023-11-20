@@ -21,7 +21,12 @@ class Context {
       current.goodbye();
       current = next;
       current.welcome();
+      if (current.getRoom().getShortDescription()=="sorteringsrum"){
+        Trash trash = new Trash();
+        trash.sortTrash();
+      }
     }
+
   }
   
   public void makeDone () {

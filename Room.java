@@ -6,11 +6,12 @@ import java.util.Iterator;
 import java.util.Set;
 
 public class Room extends Space {
-Space entry = new Space("Start Room");
+//Space entry = new Space("Start Room");
   private String description;
 
   private HashMap<String, Room> exits;
   private HashMap<String, Item> items;
+
 
   //Constructor som tager et string som argument. Laver Room objekt med en beskrivelse
   //og et exit hashmap som indeholder en string som referer til room objekter som spilleren kan gå ind i.
@@ -20,6 +21,7 @@ Space entry = new Space("Start Room");
     this.description = description;
     exits = new HashMap<String, Room>();
     items = new HashMap<String, Item>();
+    super.setRoom(this);
   }
 
 
@@ -98,6 +100,17 @@ Space entry = new Space("Start Room");
     }
     return itemstring;
   }
+  public boolean hasItem(String name){
+    return items.containsKey(name);
+  }
+
+  public Item getItem(String name){
+    return items.get(name);
+  }
+
+  public void removeItem(String name){
+    items.remove(name);
+  }
 
   /*class Room {
     Space entry;
@@ -136,8 +149,8 @@ Space entry = new Space("Start Room");
     }*/
 
 
-    Space getEntry() {
-      return entry;
-    }
+    //Space getEntry() {
+      //return entry;
+    //}
   }
 

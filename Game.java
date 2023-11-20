@@ -105,22 +105,23 @@ currentRoom = entry;
   }
 }
  */
-import java.util.ArrayList;
+
 import java.util.Scanner;
 
 class Game {
   private Room entry;
   private PointSystem pointSystem = new PointSystem();
   private Room currentRoom;
-  private ArrayList<String> inventory;
+  //private ArrayList<String> inventory;
   private Context context;
   private Command fallback;
   private Registry registry;
   private Scanner scanner;
 
+  public static InventoryManager inventory = new InventoryManager();
   public Game() {
     entry = new Room("Description"); // Initialisering af Entry
-    inventory = new ArrayList<>();
+    //inventory = new ArrayList<>();
     context = new Context(entry);
     fallback = new CommandUnknown();
     registry = new Registry(context, fallback);
@@ -132,10 +133,10 @@ class Game {
     context.getCurrent().Welcome();
     String[] startInventory = {"plastik", "metal", "giftigt affald", "plastik", "metal", "metal"};
     for (String item : startInventory) {
-      inventory.add(item);
+      inventory.addItem(item);
     }
-    Trash trash = new Trash();
-    trash.sortTrash();
+   // Trash trash = new Trash();
+    //trash.sortTrash();//Skal først kaldes i sorteringsrummet
 
     while (!context.isDone()) {
       System.out.print("> ");
@@ -150,7 +151,7 @@ class Game {
     registry.register("gå", new CommandGo());
     registry.register("help", new CommandHelp(registry));
     //Ikke helt sikker på at nedenstående skal bruges endnu
-    //registry.register("tag", new CommandGrabItem());
+    registry.register("tag", new CommandGrabItem());
     //registry.register("sorter", new CommandSortTrash());
   }
 
@@ -162,6 +163,7 @@ class Game {
     Room ocean = new Room("havet");
     Room oil = new Room("olie og giftigt affald flyder i havet");
     Room plasticIsland = new Room("plastik 'øer' ude i havet");
+    Room sorteringsRum = new Room("sorteringsrum");
 
     startRoom.addEdge("frem", beach);
 
@@ -175,6 +177,8 @@ class Game {
     oil.addEdge("tilbage", beach);
 
     plasticIsland.addEdge("tilbage", ocean);
+    plasticIsland.addEdge("frem", sorteringsRum);
+
 
     // beach items instantiated
     Item plastik = new Item("plastik", "en plastik flaske");
@@ -194,7 +198,6 @@ class Game {
 
     currentRoom = entry;
   }
-
   public static void main(String args[]) {
     System.out.println("Velkommen til stranden! Hjælp skildpadden med opgaverne og sorter skrald for at få point :)\n Du kan skrive gå+lokation for at bevæge dig rundt!");
     new Game();

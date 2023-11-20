@@ -4,8 +4,18 @@
 import java.util.Set;
 
 class Space extends Node {
+  public Room getRoom() {
+    return room;
+  }
+
+  public void setRoom(Room room) {
+    this.room = room;
+  }
+
+  private Room room;
   public Space (String name) {
     super(name);
+
   }
   
   public void welcome () {
