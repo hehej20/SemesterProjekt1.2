@@ -131,10 +131,10 @@ class Game {
     initRegistry();
 
     context.getCurrent().Welcome();
-    String[] startInventory = {"plastik", "metal", "giftigt affald", "plastik", "metal", "metal"};
+   /* String[] startInventory = {"plastik", "metal", "giftigt affald", "plastik", "metal", "metal"};
     for (String item : startInventory) {
       inventory.addItem(item);
-    }
+    }*/
    // Trash trash = new Trash();
     //trash.sortTrash();//Skal først kaldes i sorteringsrummet
 
