@@ -1,4 +1,4 @@
-/* import java.util.HashMap;
+ import java.util.HashMap;
 
 public class Tasks {
     private String taskDescription;
@@ -6,10 +6,16 @@ public class Tasks {
 
      private int timers = 30;
      private int taskCount;
+
+    public static HashMap<String, Tasks> taskMessages = new HashMap<>();
+    
     // static boolean timeUp = false;
 
     // initialize the timer.
 
+    /*Skriv det her i main
+    Tasks.addTasksToMap();
+    Tasks.getTaskDescriptionByKey("stranden"); */
 
     // constructor
     public Tasks (String taskDescription, String rewardMessage) {
@@ -18,22 +24,22 @@ public class Tasks {
         }
 
     // metode til at tilføje navn på rummet + beskeder til HashMap
-    public void addTasksToMap(HashMap<String, Tasks> taskMessages) {
+    public static void addTasksToMap() {
         taskMessages.put("stranden", new Tasks("Åh nej! Alle skildpaddeungerne kan ikke komme ned til vandet for alt det skrald", "Tak for hjælpen!"));
     }
 
 
-    public String getTaskDescription () {
+    /* public String getTaskDescription () {
         return taskDescription;
-    }
+    } */
 
-
-    public static String getTaskDescriptionByKey(String key, HashMap<String, Tasks> taskMessages) {
+//HashMap<String, Tasks> taskMessages
+    public static void printTaskDescriptionByKey(String key) {
         Tasks task = taskMessages.get(key);
         if (task != null) {
-            return task.getTaskDescription();
+            System.out.println(task.taskDescription);
         } else {
-            return "Der er ingen opgaveer her";
+            System.out.println ("Der er ingen opgaver her");
         }
     }
 
@@ -82,4 +88,3 @@ public class Tasks {
     }
 
 }
-*/
