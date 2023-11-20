@@ -25,6 +25,7 @@ class Space extends Node {
     for (String exit: exits) {
       System.out.println(" - "+exit);
     }
+    this.getRoom().printItems();
   }
   public void goodbye () {
   }
