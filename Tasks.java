@@ -31,7 +31,7 @@ public class Tasks {
 
 
     // metode til at tilføje navn på rummet + beskeder til HashMap
-    public void addTasksToMap(String key, Tasks Tasks) {
+    public void addTasksToMap() {
         taskMessages.put("stranden", new Tasks("Åh nej! Alle skildpaddeungerne kan ikke komme ned til vandet for alt det skrald, hjælp dem sikkert ned i vandet ved at fjerne skraldet", "Tak for hjælpen!"));
         taskMessages.put("sorteringsrum", new Tasks("Sorter dit skrald, så det bliver genbrugt og ikke ender på stranden igen", ""));
         taskMessages.put("vandkanten", new Tasks("Se lige alt det skrald! Hjælp havskildpadderne og de andre dyr, ved at fjerne skraldet, så de har et trygt sted at bo", "Godt gået! hvor er det blevet flot!"));
