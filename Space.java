@@ -12,6 +12,12 @@ class Space extends Node {
     this.room = room;
   }
 
+  private String taskDescription;
+
+  private String rewardMessage;
+
+  private Tasks tasks = new Tasks(taskDescription, rewardMessage);
+
   private Room room;
   public Space (String name) {
     super(name);
@@ -20,6 +26,7 @@ class Space extends Node {
   
   public void welcome () {
     System.out.println("Du er nu ved "+name);
+    System.out.println(tasks.getTaskDescriptionByKey(name));
     Set<String> exits = edges.keySet();
     System.out.println("Mulige veje at gå er:");
     for (String exit: exits) {

@@ -29,21 +29,22 @@ public class Tasks {
         this.rewardMessage = rewardMessage;
         }
 
+
     // metode til at tilføje navn på rummet + beskeder til HashMap
-    public void addTasksToMap(String key, Tasks tasks) {
-        taskMessages.put("Stranden", new Tasks("Åh nej! Alle skildpaddeungerne kan ikke komme ned til vandet for alt det skrald, hjælp dem sikkert ned i vandet ved at fjerne skraldet", "Tak for hjælpen!"));
-        taskMessages.put("Sorteringsrum", new Tasks("Sorter dit skrald, så det bliver genbrugt og ikke ender på stranden igen", ""));
-        taskMessages.put("Vandkanten", new Tasks("Se lige alt det skrald! Hjælp havskildpadderne og de andre dyr, ved at fjerne skraldet, så de har et trygt sted at bo", "Godt gået! hvor er det blevet flot!"));
-        taskMessages.put("Havet", new Tasks("Koralerne er næsten umulige at se! hjælp dyrelivet ved at fjerne alt skraldet", "Jubii, nu kan koralerne, havskildpadderne og fiskene igen slappe af i rene omgivelser"));
-        taskMessages.put("Boreplatformen", new Tasks("Åh nej! Se alt det olie som er flydt ud i havet! Skynd dig at fjerne det, tiden starter nu!", "Sejt! Du har redet biodiversiteten i havoverfladen!"));
-        taskMessages.put("Plastikøerne", new Tasks("Du kan fjerne plastikørerne ved at støvsuge dem væk", "Nu ser havet igen dejligt og rent ud! Godt gået!"));
+    public void addTasksToMap(String key, Tasks Tasks) {
+        taskMessages.put("stranden", new Tasks("Åh nej! Alle skildpaddeungerne kan ikke komme ned til vandet for alt det skrald, hjælp dem sikkert ned i vandet ved at fjerne skraldet", "Tak for hjælpen!"));
+        taskMessages.put("sorteringsrum", new Tasks("Sorter dit skrald, så det bliver genbrugt og ikke ender på stranden igen", ""));
+        taskMessages.put("vandkanten", new Tasks("Se lige alt det skrald! Hjælp havskildpadderne og de andre dyr, ved at fjerne skraldet, så de har et trygt sted at bo", "Godt gået! hvor er det blevet flot!"));
+        taskMessages.put("havet", new Tasks("Koralerne er næsten umulige at se! hjælp dyrelivet ved at fjerne alt skraldet", "Jubii, nu kan koralerne, havskildpadderne og fiskene igen slappe af i rene omgivelser"));
+        taskMessages.put("boreplatformen", new Tasks("Åh nej! Se alt det olie som er flydt ud i havet! Skynd dig at fjerne det, tiden starter nu!", "Sejt! Du har redet biodiversiteten i havoverfladen!"));
+        taskMessages.put("plastikøerne", new Tasks("Du kan fjerne plastikørerne ved at støvsuge dem væk", "Nu ser havet igen dejligt og rent ud! Godt gået!"));
     }
 
 
     public String getTaskDescriptionByKey(String key) {
         Tasks task = taskMessages.get(key);
         if (task != null) {
-            if (key == "Boreplatform") {
+            if (key == "boreplatform") {
                 startTimer();
             }
             return task.taskDescription;
@@ -54,7 +55,7 @@ public class Tasks {
 
     public String getRewardMessageByKey(String key) {
         Tasks task = taskMessages.get(key);
-        if (task != null && key != "Sorteringsrum") {
+        if (task != null && key != "sorteringsrum") {
             taskMessages.remove(key);
             taskCount++;
         }

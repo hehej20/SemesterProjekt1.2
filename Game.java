@@ -119,6 +119,7 @@ class Game {
   private Scanner scanner;
 
   public static InventoryManager inventory = new InventoryManager();
+
   public Game() {
     entry = new Room("Description"); // Initialisering af Entry
     //inventory = new ArrayList<>();
@@ -159,42 +160,42 @@ class Game {
     Room startRoom = new Room("Start Room");
     entry.addEdge("frem", startRoom);
 
-    Room Stranden = new Room("stranden");
-    Room Havet = new Room("havet");
-    Room Boreplatform = new Room("olie og giftigt affald flyder i havet");
-    Room Plastikøerne = new Room("plastik 'øer' ude i havet");
-    Room Sorteringsrum = new Room("sorteringsrum");
+    Room stranden = new Room("stranden");
+    Room havet = new Room("havet");
+    Room boreplatform = new Room("olie og giftigt affald flyder i havet");
+    Room plastikøerne = new Room("plastik 'øer' ude i havet");
+    Room sorteringsrum = new Room("sorteringsrum");
 
-    startRoom.addEdge("frem", Stranden);
+    startRoom.addEdge("frem", stranden);
 
-    Stranden.addEdge("frem", Havet);
-    Stranden.addEdge("venstre", Boreplatform);
-    Stranden.addEdge("tilbage", startRoom);
+    stranden.addEdge("frem", havet);
+    stranden.addEdge("venstre", boreplatform);
+    stranden.addEdge("tilbage", startRoom);
 
-    Havet.addEdge("frem", Plastikøerne);
-    Havet.addEdge("tilbage", Stranden);
+    havet.addEdge("frem", plastikøerne);
+    havet.addEdge("tilbage", stranden);
 
-    Boreplatform.addEdge("tilbage", Stranden);
+    boreplatform.addEdge("tilbage", stranden);
 
-    Plastikøerne.addEdge("tilbage", Havet);
-    Plastikøerne.addEdge("frem", Sorteringsrum);
+    plastikøerne.addEdge("tilbage", havet);
+    plastikøerne.addEdge("frem", sorteringsrum);
 
 
-    // Stranden items instantiated
+    // stranden items instantiated
     Item plastik = new Item("plastik", "en plastik flaske");
     Item metal = new Item("metal", "en metal dåse");
 
-    // add items to Stranden
-    Stranden.addItem("plastik", plastik);
-    Stranden.addItem("metal", metal);
+    // add items to stranden
+    stranden.addItem("plastik", plastik);
+    stranden.addItem("metal", metal);
 
     // Ocean items instantiated
     Item ocPlastik = new Item("plastik", "en plastik flaske");
     Item ocMetal = new Item("metal", "en metal dåse");
 
-    // add items to Havet
-    Havet.addItem("plastik", ocPlastik);
-    Havet.addItem("metal", ocMetal);
+    // add items to havet
+    havet.addItem("plastik", ocPlastik);
+    havet.addItem("metal", ocMetal);
 
     currentRoom = entry;
   }
