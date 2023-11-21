@@ -37,10 +37,6 @@ public class Tasks {
         taskMessages.put("Havet", new Tasks("Koralerne er næsten umulige at se! hjælp dyrelivet ved at fjerne alt skraldet", "Jubii, nu kan koralerne, havskildpadderne og fiskene igen slappe af i rene omgivelser"));
         taskMessages.put("Boreplatformen", new Tasks("Åh nej! Se alt det olie som er flydt ud i havet! Skynd dig at fjerne det, tiden starter nu!", "Sejt! Du har redet biodiversiteten i havoverfladen!"));
         taskMessages.put("plastikøerne", new Tasks("Du kan fjerne plastikørerne ved at støvsuge dem væk", "Nu ser havet igen dejligt og rent ud! Godt gået!"));
-
-        taskMessages.put("stranden", new Tasks("Åh nej! Alle skildpaddeungerne kan ikke komme ned til vandet for alt det skrald, hjælp dem sikkert ned i vandet ved at fjerne skraldet", "Tak for hjælpen!"));
-        taskMessages.put("sorteringsrum", new Tasks("Sorter dit skrald, så det bliver genbrugt og ikke ender på stranden igen", ""));
-
     }
 
 
