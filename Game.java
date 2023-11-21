@@ -159,42 +159,42 @@ class Game {
     Room startRoom = new Room("Start Room");
     entry.addEdge("frem", startRoom);
 
-    Room beach = new Room("stranden");
-    Room ocean = new Room("havet");
-    Room oil = new Room("olie og giftigt affald flyder i havet");
-    Room plasticIsland = new Room("plastik 'øer' ude i havet");
-    Room sorteringsRum = new Room("sorteringsrum");
+    Room Stranden = new Room("stranden");
+    Room Havet = new Room("havet");
+    Room Boreplatform = new Room("olie og giftigt affald flyder i havet");
+    Room Plastikøerne = new Room("plastik 'øer' ude i havet");
+    Room Sorteringsrum = new Room("sorteringsrum");
 
-    startRoom.addEdge("frem", beach);
+    startRoom.addEdge("frem", Stranden);
 
-    beach.addEdge("frem", ocean);
-    beach.addEdge("venstre", oil);
-    beach.addEdge("tilbage", startRoom);
+    Stranden.addEdge("frem", Havet);
+    Stranden.addEdge("venstre", Boreplatform);
+    Stranden.addEdge("tilbage", startRoom);
 
-    ocean.addEdge("frem", plasticIsland);
-    ocean.addEdge("tilbage", beach);
+    Havet.addEdge("frem", Plastikøerne);
+    Havet.addEdge("tilbage", Stranden);
 
-    oil.addEdge("tilbage", beach);
+    Boreplatform.addEdge("tilbage", Stranden);
 
-    plasticIsland.addEdge("tilbage", ocean);
-    plasticIsland.addEdge("frem", sorteringsRum);
+    Plastikøerne.addEdge("tilbage", Havet);
+    Plastikøerne.addEdge("frem", Sorteringsrum);
 
 
-    // beach items instantiated
+    // Stranden items instantiated
     Item plastik = new Item("plastik", "en plastik flaske");
     Item metal = new Item("metal", "en metal dåse");
 
-    // add items to beach
-    beach.addItem("plastik", plastik);
-    beach.addItem("metal", metal);
+    // add items to Stranden
+    Stranden.addItem("plastik", plastik);
+    Stranden.addItem("metal", metal);
 
     // Ocean items instantiated
     Item ocPlastik = new Item("plastik", "en plastik flaske");
     Item ocMetal = new Item("metal", "en metal dåse");
 
-    // add items to ocean
-    ocean.addItem("plastik", ocPlastik);
-    ocean.addItem("metal", ocMetal);
+    // add items to Havet
+    Havet.addItem("plastik", ocPlastik);
+    Havet.addItem("metal", ocMetal);
 
     currentRoom = entry;
   }
