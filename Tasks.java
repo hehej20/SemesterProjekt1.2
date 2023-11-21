@@ -1,15 +1,19 @@
- import java.util.HashMap;
+import java.util.HashMap;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class Tasks {
     private String taskDescription;
     private String rewardMessage;
 
-     private int timers = 30;
-     private int taskCount;
+    private PointSystem pointSystem = new PointSystem();
 
-    public static HashMap<String, Tasks> taskMessages = new HashMap<>();
-    
-    // static boolean timeUp = false;
+    private int timers = 30;
+
+    private boolean timeUp = false;
+    private int taskCount;
+
+    private HashMap<String, Tasks> taskMessages = new HashMap<>();
 
     // initialize the timer.
 
@@ -24,33 +28,34 @@ public class Tasks {
         }
 
     // metode til at tilføje navn på rummet + beskeder til HashMap
-    public static void addTasksToMap() {
-        taskMessages.put("stranden", new Tasks("Åh nej! Alle skildpaddeungerne kan ikke komme ned til vandet for alt det skrald", "Tak for hjælpen!"));
+    public void addTasksToMap(String key, Tasks tasks) {
+        taskMessages.put("stranden", new Tasks("Åh nej! Alle skildpaddeungerne kan ikke komme ned til vandet for alt det skrald, hjælp dem sikkert ned i vandet ved at fjerne skraldet", "Tak for hjælpen!"));
+        taskMessages.put("sorteringsrum", new Tasks("Sorter dit skrald, så det bliver genbrugt og ikke ender på stranden igen", ""))
     }
 
 
-    /* public String getTaskDescription () {
-        return taskDescription;
-    } */
-
-//HashMap<String, Tasks> taskMessages
-    public static void printTaskDescriptionByKey(String key) {
+    public String getTaskDescriptionByKey(String key) {
         Tasks task = taskMessages.get(key);
         if (task != null) {
-            System.out.println(task.taskDescription);
+            return task.taskDescription;
         } else {
-            System.out.println ("Der er ingen opgaver her");
+            return "Der er ingen opgaver her";
         }
     }
 
-    // Kaldes når opgaven er udført
-    public String taskComplete () {
-            // taskCount stiger når en task er complete
+    public String getRewardMessageByKey(String key) {
+        Tasks task = taskMessages.get(key);
+        if (task != null && task != sorteringsrum) {
+            taskMessages.remove(key);
             taskCount++;
-            return rewardMessage;
+            return task.rewardMessage;
+        } else {
+            return "";
+        }
     }
 
 
+    // det her er en tråd
     public void startTimer (){
         Timer timer = new Timer();
 
@@ -63,9 +68,9 @@ public class Tasks {
                 }
                 if (timers == 0){
                     System.out.println("Time is up! :)");
-                    taskComplete();
+                    getRewardMessageByKey("oil");
                     timer.cancel();
-                    // timeUp = true;
+                    timeUp = true;
                 }
             }
         };
@@ -82,7 +87,7 @@ public class Tasks {
     public void endGame() {
         // alle tasks er complete. Task counter.
         System.out.println("Game Completed! WELL DONE!");
-        System.out.println("total point = " + Game.pointSystem.getPoints());
+        System.out.println("total point = " + pointSystem.getPoints());
 
 
     }
