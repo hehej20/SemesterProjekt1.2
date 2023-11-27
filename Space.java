@@ -1,6 +1,7 @@
 /* Space class for modeling spaces (rooms, caves, ...)
  */
 
+import java.util.HashMap;
 import java.util.Set;
 
 class Space extends Node {
@@ -12,6 +13,14 @@ class Space extends Node {
     this.room = room;
   }
 
+  private String taskDescription;
+
+  private String rewardMessage;
+
+  private Tasks tasks = new Tasks(taskDescription, rewardMessage);
+
+  private HashMap<String, Tasks> taskMessages = new HashMap<>();
+
   private Room room;
   public Space (String name) {
     super(name);
@@ -20,6 +29,8 @@ class Space extends Node {
   
   public void welcome () {
     System.out.println("Du er nu ved "+name);
+    tasks.addTasksToMap();
+    System.out.println(tasks.getTaskDescriptionByKey(name));
     Set<String> exits = edges.keySet();
     System.out.println("Mulige veje at gå er:");
     for (String exit: exits) {

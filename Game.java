@@ -119,6 +119,7 @@ class Game {
   private Scanner scanner;
 
   public static InventoryManager inventory = new InventoryManager();
+
   public Game() {
     entry = new Room("Description"); // Initialisering af Entry
     //inventory = new ArrayList<>();
@@ -159,47 +160,47 @@ class Game {
     Room startRoom = new Room("Start Room");
     entry.addEdge("frem", startRoom);
 
-    Room beach = new Room("stranden");
-    Room ocean = new Room("havet");
-    Room oil = new Room("olie og giftigt affald flyder i havet");
-    Room plasticIsland = new Room("plastik 'øer' ude i havet");
-    Room sorteringsRum = new Room("sorteringsrum");
+    Room stranden = new Room("stranden");
+    Room havet = new Room("havet");
+    Room boreplatform = new Room("olie og giftigt affald flyder i havet");
+    Room plastikøerne = new Room("plastik 'øer' ude i havet");
+    Room sorteringsrum = new Room("sorteringsrum");
 
-    startRoom.addEdge("frem", beach);
+    startRoom.addEdge("frem", stranden);
 
-    beach.addEdge("frem", ocean);
-    beach.addEdge("venstre", oil);
-    beach.addEdge("tilbage", startRoom);
+    stranden.addEdge("frem", havet);
+    stranden.addEdge("venstre", boreplatform);
+    stranden.addEdge("tilbage", startRoom);
 
-    ocean.addEdge("frem", plasticIsland);
-    ocean.addEdge("tilbage", beach);
+    havet.addEdge("frem", plastikøerne);
+    havet.addEdge("tilbage", stranden);
 
-    oil.addEdge("tilbage", beach);
+    boreplatform.addEdge("tilbage", stranden);
 
-    plasticIsland.addEdge("tilbage", ocean);
-    plasticIsland.addEdge("frem", sorteringsRum);
+    plastikøerne.addEdge("tilbage", havet);
+    plastikøerne.addEdge("frem", sorteringsrum);
 
 
-    // beach items instantiated
+    // stranden items instantiated
     Item plastik = new Item("plastik", "en plastik flaske");
     Item metal = new Item("metal", "en metal dåse");
 
-    // add items to beach
-    beach.addItem("plastik", plastik);
-    beach.addItem("metal", metal);
+    // add items to stranden
+    stranden.addItem("plastik", plastik);
+    stranden.addItem("metal", metal);
 
     // Ocean items instantiated
     Item ocPlastik = new Item("plastik", "en plastik flaske");
     Item ocMetal = new Item("metal", "en metal dåse");
 
-    // add items to ocean
-    ocean.addItem("plastik", ocPlastik);
-    ocean.addItem("metal", ocMetal);
+    // add items to havet
+    havet.addItem("plastik", ocPlastik);
+    havet.addItem("metal", ocMetal);
 
     currentRoom = entry;
   }
   public static void main(String args[]) {
-    // System.out.println("Velkommen til stranden! Hjælp skildpadden med opgaverne og sorter skrald for at få point :)\n Du kan skrive gå+lokation for at bevæge dig rundt!");
+    System.out.println("Velkommen til stranden! Hjælp skildpadden med opgaverne og sorter skrald for at få point :)\n Du kan skrive gå+lokation for at bevæge dig rundt!");
     new Game();
   }
 }

@@ -24,11 +24,6 @@ public class Room extends Space {
   }
 
 
-  public String getRoomName(){
-    return name;
-  }
-
-
   //metode som mapper exits med direction til næste room. Ved at kalde denne metode can det defineres hvilket exit
   //som Room har, ved at give direction til det næste room og et roomobjekt.
   public void setExit(String direction, Room neighbor){
