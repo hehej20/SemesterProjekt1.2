@@ -29,8 +29,6 @@ class Space extends Node {
   
   public void welcome () {
     System.out.println("Du er nu ved "+name);
-    tasks.addTasksToMap();
-    System.out.println(tasks.getTaskDescriptionByKey(name));
     Set<String> exits = edges.keySet();
     System.out.println("Mulige veje at gå er:");
     for (String exit: exits) {

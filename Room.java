@@ -11,6 +11,14 @@ public class Room extends Space {
   private HashMap<String, Room> exits;
   private HashMap<String, Item> items;
 
+  private String taskDescription;
+
+  private String rewardMessage;
+
+  private Tasks tasks = new Tasks(taskDescription, rewardMessage);
+
+  private HashMap<String, Tasks> taskMessages = new HashMap<>();
+
 
   //Constructor som tager et string som argument. Laver Room objekt med en beskrivelse
   //og et exit hashmap som indeholder en string som referer til room objekter som spilleren kan gå ind i.
@@ -81,10 +89,11 @@ public class Room extends Space {
   }
   //prints out the items in a given room by getting the items name-attributes and adding these to a string (by using concat) which is returned
   public void printItems() {
+    tasks.addTasksToMap();
     if (this.items.isEmpty()) {
-      System.out.println("Du har samlet alt skrald her, Flot!.");
+      System.out.println(tasks.getRewardMessageByKey(name));
     } else {
-      System.out.println("I dette rum er der følgende skrald: ");
+      System.out.println(tasks.getTaskDescriptionByKey(name));
       for (Item item : items.values()) {
         System.out.println(item.getName());
       }
