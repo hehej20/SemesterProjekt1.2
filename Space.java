@@ -1,7 +1,6 @@
 /* Space class for modeling spaces (rooms, caves, ...)
  */
 
-import java.util.HashMap;
 import java.util.Set;
 
 class Space extends Node {
@@ -12,14 +11,6 @@ class Space extends Node {
   public void setRoom(Room room) {
     this.room = room;
   }
-
-  private String taskDescription;
-
-  private String rewardMessage;
-
-  private Tasks tasks = new Tasks(taskDescription, rewardMessage);
-
-  private HashMap<String, Tasks> taskMessages = new HashMap<>();
 
   private Room room;
   public Space (String name) {
