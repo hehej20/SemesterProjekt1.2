@@ -26,7 +26,7 @@ public class InventoryManager {
         inventory.add(name);
 
     }
-    public static void main (String [] args) {
+    /*public static void main (String [] args) {
         inventory.add("plastik");
         inventory.add("plastik");
         inventory.add("plastik");
@@ -34,6 +34,7 @@ public class InventoryManager {
         inventory.add("olie");
         trash.sortTrash();
     }
+     */
 }
 
 

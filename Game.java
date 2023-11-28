@@ -14,7 +14,6 @@ class Game {
   static Registry registry = new Registry(context, fallback);
   static Scanner  scanner  = new Scanner(System.in);
   static Trash trash = new Trash();
-  private Room entry;
   private Room currentRoom;
 
 
@@ -29,8 +28,10 @@ class Game {
     //registry.register("sorter", new CommandSortTrash());
   }
 
-  public Room startRoom, beach, ocean, oil, plasticIsland;
+  public Room entry, startRoom, beach, ocean, oil, plasticIsland;
   private void createRooms(String description){
+
+    entry = new Room("entry");
 
     startRoom = new Room("start rum");
 
@@ -77,7 +78,7 @@ class Game {
     //add items to ocean
     ocean.addItem("plastik", plastik);
     ocean.addItem("metal", metal);
-currentRoom = entry;
+    currentRoom = entry;
   }
   public static void main (String args[]) {
     System.out.println("Velkommen til stranden! Hjælp skildpadden med opgaverne og sorter skrald for at få point :)\n Du kan skrive gå+lokation for at bevæge dig rundt!");
