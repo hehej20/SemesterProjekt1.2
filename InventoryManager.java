@@ -18,15 +18,15 @@ public class InventoryManager {
         this.item = item;
         this.quantity = quantity;
     }
-    public static ArrayList<String> getInventory() {
+    public ArrayList<String> getInventory() {
 
         return inventory;
     }
-    public void addItem(String name, int quantity) {
-        this.item = name;
-        this.quantity = quantity;
+    public void addItem(String name) {
+        inventory.add(name);
+
     }
-    public static void main (String [] args) {
+    /*public static void main (String [] args) {
         inventory.add("plastik");
         inventory.add("plastik");
         inventory.add("plastik");
@@ -34,6 +34,7 @@ public class InventoryManager {
         inventory.add("olie");
         trash.sortTrash();
     }
+     */
 }
 
 

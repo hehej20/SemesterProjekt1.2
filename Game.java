@@ -1,5 +1,5 @@
 /* Main class for launching the game
- */
+
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -103,5 +103,105 @@ class Game {
     }
     System.out.println("Game Over 😥");
 
+  }
+}
+ */
+
+import java.util.Scanner;
+
+class Game {
+  private Room entry;
+  private PointSystem pointSystem = new PointSystem();
+  private Room currentRoom;
+  //private ArrayList<String> inventory;
+  private Context context;
+  private Command fallback;
+  private Registry registry;
+  private Scanner scanner;
+
+  public static InventoryManager inventory = new InventoryManager();
+
+  public Game() {
+    entry = new Room("Description"); // Initialisering af Entry
+    //inventory = new ArrayList<>();
+    context = new Context(entry);
+    fallback = new CommandUnknown();
+    registry = new Registry(context, fallback);
+    scanner = new Scanner(System.in);
+
+    createRooms();
+    initRegistry();
+
+    context.getCurrent().Welcome();
+   /* String[] startInventory = {"plastik", "metal", "giftigt affald", "plastik", "metal", "metal"};
+    for (String item : startInventory) {
+      inventory.addItem(item);
+    }*/
+   // Trash trash = new Trash();
+    //trash.sortTrash();//Skal først kaldes i sorteringsrummet
+
+    while (!context.isDone()) {
+      System.out.print("> ");
+      String line = scanner.nextLine();
+      registry.dispatch(line);
+    }
+    System.out.println("Game Over 😥");
+  }
+
+  private void initRegistry() {
+    registry.register("quit", new CommandExit());
+    registry.register("gå", new CommandGo());
+    registry.register("help", new CommandHelp(registry));
+    //Ikke helt sikker på at nedenstående skal bruges endnu
+    registry.register("tag", new CommandGrabItem());
+    //registry.register("sorter", new CommandSortTrash());
+  }
+
+  private void createRooms() {
+    Room startRoom = new Room("Start Room");
+    entry.addEdge("frem", startRoom);
+
+    Room stranden = new Room("stranden");
+    Room havet = new Room("havet");
+    Room boreplatform = new Room("olie og giftigt affald flyder i havet");
+    Room plastikøerne = new Room("plastik 'øer' ude i havet");
+    Room sorteringsrum = new Room("sorteringsrum");
+
+    startRoom.addEdge("frem", stranden);
+
+    stranden.addEdge("frem", havet);
+    stranden.addEdge("venstre", boreplatform);
+    stranden.addEdge("tilbage", startRoom);
+
+    havet.addEdge("frem", plastikøerne);
+    havet.addEdge("tilbage", stranden);
+
+    boreplatform.addEdge("tilbage", stranden);
+
+    plastikøerne.addEdge("tilbage", havet);
+    plastikøerne.addEdge("frem", sorteringsrum);
+
+
+    // stranden items instantiated
+    Item plastik = new Item("plastik", "en plastik flaske");
+    Item metal = new Item("metal", "en metal dåse");
+
+    // add items to stranden
+    stranden.addItem("plastik", plastik);
+    stranden.addItem("metal", metal);
+
+    // Ocean items instantiated
+    Item ocPlastik = new Item("plastik", "en plastik flaske");
+    Item ocMetal = new Item("metal", "en metal dåse");
+
+    // add items to havet
+    havet.addItem("plastik", ocPlastik);
+    havet.addItem("metal", ocMetal);
+
+    currentRoom = entry;
+  }
+  public static void main(String args[]) {
+    System.out.println("Velkommen til stranden! Hjælp skildpadden med opgaverne og sorter skrald for at få point :)\n Du kan skrive gå+lokation for at bevæge dig rundt!");
+    new Game();
   }
 }

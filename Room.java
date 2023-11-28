@@ -2,15 +2,15 @@
  */
 
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Set;
 
 public class Room extends Space {
-Space entry = new Space("Start Room");
+//Space entry = new Space("Start Room");
   private String description;
 
   private HashMap<String, Room> exits;
   private HashMap<String, Item> items;
+
 
   //Constructor som tager et string som argument. Laver Room objekt med en beskrivelse
   //og et exit hashmap som indeholder en string som referer til room objekter som spilleren kan gå ind i.
@@ -20,12 +20,8 @@ Space entry = new Space("Start Room");
     this.description = description;
     exits = new HashMap<String, Room>();
     items = new HashMap<String, Item>();
+    super.setRoom(this);
   }
-
-
-  //public String getRoomName(){
-    //return name;
-  //}
 
 
   //metode som mapper exits med direction til næste room. Ved at kalde denne metode can det defineres hvilket exit
@@ -84,19 +80,26 @@ Space entry = new Space("Start Room");
     this.items = items;
   }
   //prints out the items in a given room by getting the items name-attributes and adding these to a string (by using concat) which is returned
-  public String printItems(HashMap items) {
-    String itemstring = new String();
+  public void printItems() {
     if (this.items.isEmpty()) {
       System.out.println("Du har samlet alt skrald her, Flot!.");
     } else {
       System.out.println("I dette rum er der følgende skrald: ");
-      Iterator iter = items.entrySet().iterator();
-      while (iter.hasNext()) {
-        HashMap.Entry entry = (HashMap.Entry) iter.next();
-        itemstring = itemstring.concat(entry.getKey().toString() + " ");
+      for (Item item : items.values()) {
+        System.out.println(item.getName());
       }
     }
-    return itemstring;
+  }
+  public boolean hasItem(String name){
+    return items.containsKey(name);
+  }
+
+  public Item getItem(String name){
+    return items.get(name);
+  }
+
+  public void removeItem(String name){
+    items.remove(name);
   }
 
   /*class Room {
@@ -136,8 +139,8 @@ Space entry = new Space("Start Room");
     }*/
 
 
-    Space getEntry() {
-      return entry;
-    }
+    //Space getEntry() {
+      //return entry;
+    //}
   }
 

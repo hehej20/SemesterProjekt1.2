@@ -7,7 +7,7 @@ public class Trash {
     // Test fra Nikolai's side
     //private final String trashType;
     //private final String sortCat;
-    static InventoryManager inventory = new InventoryManager();
+
 
 
     public Trash(/*String type, String sortCat*/) {
@@ -31,8 +31,8 @@ public class Trash {
 
 
     public void sortTrash() {
-        ArrayList<String> inventory = InventoryManager.inventory;
-        Collections.shuffle(InventoryManager.inventory);
+        ArrayList<String> inventory = Game.inventory.getInventory();
+        Collections.shuffle(inventory);
         for (int i = 0; i < inventory.size(); i++) {
             // Opret en scanner for hver opsamlet affald i vores inventory.Array
 

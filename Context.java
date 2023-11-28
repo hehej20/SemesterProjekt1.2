@@ -21,7 +21,13 @@ class Context {
       current.goodbye();
       current = next;
       current.welcome();
+      if (current.getRoom().getShortDescription()=="sorteringsrum") {
+        System.out.println("Du er i Sorteringsrummet. Her kan du sortere alt det affald du har samlet op.");
+        Trash trash = new Trash();
+        trash.sortTrash();
+      }
     }
+
   }
   
   public void makeDone () {
